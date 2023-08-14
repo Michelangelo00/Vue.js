@@ -14,42 +14,49 @@
         <div class="container-fluid">
             <a href="#" class="navbar-brand">My Vue</a>
             <ul class="navbar-nav me auto mb-2 mb-lg-0">
-                <li v-for="(link, index) in links" class="nav-item" :key="index">
+                <li v-for="(page, index) in pages" class="nav-item" :key="index">
                     <a 
-                    :href="link.url"
-                    :title="`This link goes to the ${link.text} page`" 
+                    :href="page.link.url"
+                    :title="`This link goes to the ${page.link.text} page`" 
                     aria-current="page" 
                     class="nav-link"
-                    >{{ link.text }}</a>
+                    @click.prevent="activePage = index"
+                    >{{ page.link.text }}</a>
                 </li>
             </ul>
         </div>
     </nav>
     <div id="content" class="container">
-        <h1>{{ pageTitle }}</h1>
-        <p>{{ content }}</p>
+        <h1>{{ pages[activePage].pageTitle }}</h1>
+        <p>{{ pages[activePage].content }}</p>
     </div>
 
     <script>
         Vue.createApp({
             data() {
                 return {
-                    links: [
-                    {text: 'Home', url: 'index.html'}, 
-                    {text: 'About', url: 'about.html'},
-                    {text: 'Contact', url: 'contact.html'}
+                    activePage: 0,
+                    pages: [
+                        {
+                            link: {text: 'Home', url: 'index.html'},
+                            pageTitle: 'Home page',
+                            content: 'This is the Home content'
+                        },
+                        {
+                            link: {text: 'About', url: 'about.html'},
+                            pageTitle: 'About page',
+                            content: 'This is the About content'
+                        },
+                        {
+                            link: {text: 'Contact', url: 'contact.html'},
+                            pageTitle: 'Contact page',
+                            content: 'This is the Contact content'
+                        }
+
                     ]
-                }
-            }
-        }).mount('nav');
-        Vue.createApp({
-            data() {
-                return {
-                    pageTitle: 'Hello, Vue',
-                    content: 'Welcome to the wonderful world of Vue'
                 };
             }
-        }).mount("#content");
+        }).mount("body");
     </script>
 </body>
 </html>
