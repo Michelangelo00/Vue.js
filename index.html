@@ -79,6 +79,17 @@
 
                     ]
                 };
+            },
+            methods: {
+                changeTheme(){
+                    let theme = 'light';
+
+                    if(this.theme == 'light'){
+                        theme = 'dark';
+                    }
+
+                    this.theme = theme;
+                }
             }
         }).mount("body");
     </script>
