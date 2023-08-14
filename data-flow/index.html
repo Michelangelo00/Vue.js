@@ -1,3 +1,30 @@
+<!--
+Il "data flow" in Vue.js si riferisce al modo in cui i dati vengono trasmessi tra i componenti all'interno di un'applicazione. 
+La gestione del flusso di dati è una parte cruciale dello sviluppo delle applicazioni in Vue, e c'è un modello specifico che viene generalmente seguito. 
+Ecco un'analisi dei concetti chiave:
+
+    - Props: Le "props" sono utilizzate per passare dati da un componente padre a un componente figlio. 
+      Sono essenzialmente attributi personalizzati che si possono legare a un componente figlio, permettendo al componente padre di passare i dati al figlio. 
+      I dati che vengono passati attraverso le props sono "read-only" nel componente figlio, il che significa che il componente figlio non dovrebbe modificarli.
+
+    - Eventi: Per comunicare i cambiamenti dal componente figlio al componente padre, Vue usa un sistema di eventi. 
+      Un componente figlio può emettere un evento, e un componente padre può ascoltarlo. 
+      Questo permette al componente figlio di inviare dati al componente padre o di notificare il componente padre di qualche cambiamento.
+
+    - Dati Reattivi: All'interno di un componente, i dati possono essere dichiarati come reattivi. 
+      Ciò significa che se i dati vengono modificati, Vue rileverà automaticamente il cambiamento e aggiornerà 
+      il DOM in modo che rispecchi i nuovi dati.
+
+    - Vuex: Per applicazioni più complesse, la gestione del flusso di dati tra componenti non correlati o tra molti componenti può diventare difficile. 
+      Vuex è una libreria di gestione dello stato che aiuta a gestire il flusso di dati in un'applicazione Vue più grande. 
+      Offre uno store centralizzato per tutti i dati reattivi dell'applicazione e regole ben definite per mutare quei dati.
+
+In sintesi, il data flow in Vue.js riguarda il modo in cui i dati sono trasmessi e gestiti tra i componenti, 
+seguendo una struttura unidirezionale da padre a figlio attraverso le props, e usando eventi per comunicare cambiamenti dal figlio al padre. 
+Per gestire lo stato in un'applicazione più grande, strumenti come Vuex possono essere utilizzati per semplificare e organizzare il flusso di dati.
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
