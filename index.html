@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav 
+        class="navbar navbar-expand-lg"
+        :class="{'navbar-light bg-light': !useDarkNavbar, 'navbar-dark bg-dark': useDarkNavbar}"
+    >
         <div class="container-fluid">
             <a href="#" class="navbar-brand">My Vue</a>
             <ul class="navbar-nav me auto mb-2 mb-lg-0">
@@ -18,12 +21,22 @@
                     <a 
                     :href="page.link.url"
                     :title="`This link goes to the ${page.link.text} page`" 
+                    :class="{active: activePage == index}"
                     aria-current="page" 
                     class="nav-link"
                     @click.prevent="activePage = index"
                     >{{ page.link.text }}</a>
                 </li>
             </ul>
+            <form action="" class="d-flex">
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click.prevent="useDarkNavbar = !useDarkNavbar"
+                >
+                Change
+                </button>
+            </form>
         </div>
     </nav>
     <div id="content" class="container">
@@ -36,6 +49,7 @@
             data() {
                 return {
                     activePage: 0,
+                    useDarkNavbar: true,
                     pages: [
                         {
                             link: {text: 'Home', url: 'index.html'},
