@@ -1,3 +1,13 @@
+<!--
+    template => dove viene costruito tutto l'html con la sintassi di vue, al suo interno possono essere aggiunti anche
+    componenti esterni, in questo caso navbar-link è un altro componente presente in NavbarLink.vue
+
+    script => dove viene costruita tutta la logica del componente
+
+    style => dove viene inserito tutto lo style del componente (solo se viene aggiunto scoped), altrimenti
+    se esiste una classe con lo stesso nome in altri componenti viene sovrascritta anche negli altri
+-->
+
 <template>
             <nav 
             :class="[`navbar-${theme}`, `bg-${theme}`, 'navbar', 'navbar-expand-lg']"
