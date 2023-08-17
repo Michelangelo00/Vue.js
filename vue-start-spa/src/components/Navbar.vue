@@ -23,6 +23,13 @@
                             :index="index"
                         >
                         </navbar-link>
+                        <li>
+                            <router-link 
+                                to="/create"
+                                aria-current="page" 
+                                class="nav-link"
+                            >Create Page</router-link>
+                        </li>
                     </ul>
                     <form action="" class="d-flex">
                         <button
