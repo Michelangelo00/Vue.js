@@ -48,7 +48,7 @@ import CreatePage from './components/CreatePage.vue';
                 this.pages = data;
             },
             pageCreated(pageObj){
-                console.log(pageObj);
+                this.pages.push(pageObj);
             }
         }
 
