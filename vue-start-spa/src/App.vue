@@ -2,15 +2,12 @@
     <navbar
         :pages="pages"
         :active-page="activePage"
-        :nav-link-click="(index) => activePage = index"
     ></navbar>
 
-    <!--
     <page-viewer 
         v-if="pages.length > 0"
         :page="pages[activePage]"
     ></page-viewer>
-    -->
 
     <create-page
         @page-created="pageCreated"
@@ -33,6 +30,10 @@ import CreatePage from './components/CreatePage.vue';
         },
         created(){
             this.getPages();
+
+            this.$bus.$on('navbarLinkActived', (index) => {
+                this.activePage = index;  
+            })
         },
         data() {
                 return {
