@@ -44,6 +44,9 @@ import NavbarLink from './NavbarLink.vue';
         components:{
             NavbarLink
         },
+        created(){
+            this.getThemeSetting();
+        },
         props: ['pages', 'activePage', 'navLinkClick'],
         data(){
             return {
@@ -59,7 +62,18 @@ import NavbarLink from './NavbarLink.vue';
                 }
 
                 this.theme = theme;
-            }
+                this.storeThemeSetting();
+            },
+            storeThemeSetting(){
+                localStorage.setItem('theme', this.theme);
+            },
+            getThemeSetting(){
+                let theme = localStorage.getItem('theme');
+
+                if(theme){
+                    this.theme = theme;
+                }
+            },
         }
     }
 
