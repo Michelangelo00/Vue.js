@@ -66,7 +66,7 @@
             <button 
                 class="btn btn-danger"
                 @click.prevent="deletePage"
-            >Cancel</button>
+            >Delete</button>
         </div>
     </form>
 </div>
@@ -100,8 +100,12 @@ function goToPagesList() {
     router.push({path: '/pages'});
 }
 
-function deletPage(){
+function deletePage(){
     pages.removePage(index);
+
+    bus.$emit('page-deleted', {index});
+
+    goToPagesList();
 }
 
 </script>
