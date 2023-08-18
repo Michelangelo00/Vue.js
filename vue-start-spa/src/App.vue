@@ -1,6 +1,6 @@
 <template>
-    <navbar></navbar>
-
+    <navbar
+    ></navbar>
     <router-view></router-view>
 
     <!--
@@ -19,15 +19,11 @@
 
 <script>
 
-import PageViewer from './components/PageViewer.vue';
 import Navbar from './components/Navbar.vue';
-import CreatePage from './components/CreatePage.vue';
 
     export default {
         components:{
             Navbar,
-            PageViewer,
-            CreatePage
         },
         methods: {
             async getPages(){

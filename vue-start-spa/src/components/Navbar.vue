@@ -23,7 +23,7 @@
                         </navbar-link>
                         <li>
                             <router-link 
-                                to="/create"
+                                to="/pages/create"
                                 aria-current="page" 
                                 class="nav-link"
                                 active-class="active"
