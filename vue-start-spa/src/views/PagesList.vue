@@ -1,5 +1,5 @@
 <template>
-
+<div>
     <h4>Pages</h4>
     <div class="text-end">
         <router-link
@@ -29,7 +29,7 @@
             </tr>
         </tbody>
     </table>
-
+</div>
 </template>
 
 <script setup>

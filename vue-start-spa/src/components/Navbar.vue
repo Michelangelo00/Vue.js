@@ -53,6 +53,10 @@ import NavbarLink from './NavbarLink.vue';
             this.getThemeSetting();
 
             this.pages = this.$pages.getAllPages();
+
+            this.$bus.$on('page-updated', () => {
+                this.pages = [...this.$pages.getAllPages()];
+            });
         },
         computed: {
             publishedPages(){
@@ -60,7 +64,7 @@ import NavbarLink from './NavbarLink.vue';
             }
         },
         props: ['pages'],
-        inject: ['$pages'],
+        inject: ['$pages', '$bus'],
         data(){
             return {
                 theme: 'light',
