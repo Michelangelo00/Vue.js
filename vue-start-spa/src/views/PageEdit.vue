@@ -60,8 +60,12 @@
                 @click.prevent="submit"
             >Edit</button>
             <button 
-                class="btn btn-secondary"
+                class="btn btn-secondary me-2"
                 @click.prevent="goToPagesList"
+            >Cancel</button>
+            <button 
+                class="btn btn-danger"
+                @click.prevent="deletePage"
             >Cancel</button>
         </div>
     </form>
@@ -94,6 +98,10 @@ function submit(){
 
 function goToPagesList() {
     router.push({path: '/pages'});
+}
+
+function deletPage(){
+    pages.removePage(index);
 }
 
 </script>
