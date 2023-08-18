@@ -9,6 +9,7 @@
 
     export default {
         props: ['index'],
+        inject: ['$pages'],
         created() {
             this.page = this.$pages.getSinglePage(this.index);
             //this.$watch(() => this.$route.params, (newParams, prevParams) => {
