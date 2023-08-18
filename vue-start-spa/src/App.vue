@@ -1,8 +1,5 @@
 <template>
-    <navbar
-        :pages="pages"
-        :active-page="activePage"
-    ></navbar>
+    <navbar></navbar>
 
     <router-view></router-view>
 
@@ -31,19 +28,6 @@ import CreatePage from './components/CreatePage.vue';
             Navbar,
             PageViewer,
             CreatePage
-        },
-        created(){
-            this.getPages();
-
-            this.$bus.$on('navbarLinkActived', (index) => {
-                this.activePage = index;  
-            })
-        },
-        data() {
-                return {
-                    activePage: 0,
-                    pages: []
-                };
         },
         methods: {
             async getPages(){

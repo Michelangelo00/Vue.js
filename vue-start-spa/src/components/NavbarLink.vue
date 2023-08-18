@@ -3,7 +3,7 @@
         <router-link 
         :to="`/${index}`"
         :title="`This link goes to the ${page.link.text} page`" 
-        :class="activeClasses"
+        active-class="active"
         aria-current="page" 
         class="nav-link"
         >{{ page.link.text }}</router-link>
@@ -12,15 +12,7 @@
 
 <script>
     export default {
-        props: ['page', 'index', 'isActive'],
-        computed: {
-            activeClasses() {
-                return{
-                    active: this.isActive,
-                    emphasize: this.isActive
-                }
-            }
-        }
+        props: ['page', 'index']
     }
 </script>
 <style scoped>

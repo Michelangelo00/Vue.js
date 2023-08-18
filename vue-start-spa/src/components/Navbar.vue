@@ -18,8 +18,6 @@
                         <navbar-link
                             v-for="(page, index) in publishedPages" class="nav-item" :key="index"
                             :page="page"
-                            :isActive="activePage == index"
-                            @actived="$emit('actived')"
                             :index="index"
                         >
                         </navbar-link>
@@ -28,6 +26,7 @@
                                 to="/create"
                                 aria-current="page" 
                                 class="nav-link"
+                                active-class="active"
                             >Create Page</router-link>
                         </li>
                     </ul>
@@ -52,16 +51,19 @@ import NavbarLink from './NavbarLink.vue';
         },
         created(){
             this.getThemeSetting();
+
+            this.pages = this.$pages.getAllPages();
         },
         computed: {
             publishedPages(){
                 return this.pages.filter(p => p.published);
             }
         },
-        props: ['pages', 'activePage'],
+        props: ['pages'],
         data(){
             return {
                 theme: 'light',
+                pages: []
             }
         },
         methods: {
